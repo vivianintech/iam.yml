@@ -1,0 +1,267 @@
+asyncapi: 2.4.0
+info:
+  title: Eck service
+  version: 1.0.0
+  description: Eck service events
+channels:
+  eck.entity.update:
+    subscribe:
+      tags: 
+        - name: eck-service
+      message:
+        $ref: '#/components/messages/EckPayload'
+components:
+  schemas:
+    InstanceEntity:
+      instance:
+        type: string
+      entity-type:
+        type: string
+      id:
+        type: integer
+  messages:
+    EckPayload:
+      payload:
+        type: object
+        properties:
+          $ref: '#/components/schemas/InstanceEntity'
+          original: 
+            type: object
+            properties:
+              $ref: '#/components/schemas/InstanceEntity'          
+          created:
+            type: integer
+          mail:
+            type: string
+          name:
+            type: string
+          timestamp:
+            type: integer
+          embedded:
+            type: object
+            properties:
+              eck:
+                type: object
+                example:
+                  fields_12345: []
+              portal:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    tittle:
+                      type: string
+                    status: 
+                      type: string
+                    is_primary: 
+                      type: string
+                    version:
+                      type: string
+                    data:
+                      type: object
+                      properties: 
+                        author: 
+                          type: string
+                        user_plan:
+                          type: object
+                          properties:
+                            license: 
+                              type: integer
+                            product:
+                              type: string
+                            industry:
+                              type: string
+                            regional:
+                              type: string
+                            currency:
+                              type: string
+                            trial:
+                              type: integer
+                            expire:
+                              type: integer
+                            manual_price:
+                              type: boolean
+                            custom_contract:
+                              type: boolean
+                            partner_customer:
+                              type: boolean
+                            price: 
+                              type: integer
+                        configuration:
+                          type: object
+                          properties:
+                            is_virtial:
+                              type: integer
+                            user_invite:
+                              type: integer
+                            send_welcome_email:
+                              type: string
+                            site_name: 
+                              type: string
+                            welcome: 
+                              type: string
+                            login_version:
+                              type: string
+                            integrations:
+                              type: object
+                            setup_guide:
+                              type: array
+                            locale:
+                              type: string
+                            notify_on_enrolment_create:
+                              type: boolean
+                            dashboard_blocks:
+                              type: object
+                            modulesEnabled:
+                              type: object
+                              properties:
+                                allowRegister:
+                                  type: boolean
+                                projectGroup:
+                                  type: boolean
+                            userMenusEnabled:
+                              type: object
+                              properties:
+                                paymentDetail: 
+                                  type: boolean
+                                hide_groups_for_learners:
+                                  type: boolean
+                            manual_payment:
+                              type: boolean
+                            manual_payment_recipient:
+                              type: string
+                            courseAuthorsEnabled:
+                              type: boolean
+                            public_writing:
+                              type: boolean
+                            discussionEnabled:
+                              type: boolean
+                            publicGroupsEnabled:
+                              type: boolean
+                            # testing
+                            courseNavigationsEnabled:
+                              type: object
+                              properties:
+                                footer: 
+                                  type: boolean
+                                side:
+                                  type: boolean
+                            embed:
+                              type: object
+                              properties:
+                                type: 
+                                  type: string
+                                apikey: 
+                                  type: string
+                            public_profiles: 
+                              type: boolean
+                            content_provider_dashboard: 
+                              type: boolean
+                            xero_contact_name: 
+                              type: string
+                            csm_mail: 
+                              type: string
+                            coupon_setting: 
+                              type: boolean
+                            collections: 
+                              type: array
+                            pay_per_seat: 
+                              type: boolean
+                            content_admin_edit_user: 
+                              type: boolean
+                            signup_message: 
+                              type: string
+                            timezone: 
+                              type: string
+                            content_admin_edit_notification: 
+                              type: boolean
+                            landing_logout_page: 
+                              type: string
+                            landing_login_page: 
+                              type: string
+                            sso_button:
+                              type: object
+                              properties: 
+                                go1_auth0: 
+                                  type: string
+                            new_welcome_email:
+                              type: boolean
+                            signature_title: 
+                              type: string
+                            signature_name: 
+                              type: string
+                            logo:
+                              type: string
+                            featured_playlist: 
+                              type: string
+                            signup_unit_options:
+                              type: array
+                            content_package_signup_flow:
+                              type: boolean
+                            enable_learner_signup_flow: 
+                              type: boolean
+                            no_focus_terms: 
+                              type: boolean
+                            disable_package_overview:
+                              type: boolean
+                            signup_tagline: 
+                              type: string
+                            signup_secondary_tagline: 
+                              type: string
+                            login_tagline:
+                              type: string
+                            login_secondary_tagline: 
+                              type: string
+                            reset_password_url: 
+                              type: string
+                            credit_card_legal_disclaimer: 
+                              type: string
+                            portal_url_help_text: 
+                              type: string
+                            preselect_packages:
+                              type: array
+                            company_size_stepper: 
+                              type: boolean
+                            portal_creation_tagline: 
+                              type: string
+                            portal_creation_secondary_tagline: 
+                              type: string
+                            simplified_terms_agreement:
+                              type: boolean         
+                        features:
+                          type: object
+                          properties:
+                            marketplace: 
+                              type: boolean
+                            user_invite: 
+                              type: boolean
+                            auth0: 
+                              type: boolean
+                            awards: 
+                              type: boolean
+                        files:
+                          type: object
+                          properties:
+                            feature_image_sizing_type:
+                              type: string
+                            login_background: 
+                              type: string
+                            logo: 
+                              type: string
+                            feature_image: 
+                              type: string
+                            feature_image_mobile: 
+                              type: string
+                        theme:
+                          type: object
+                          properties: 
+                            primary: 
+                              type: string
+                            accent:
+                              type: string
+                            warn:
+                              type: string
+                      timestamp: 
+                        type: string
+                      created:
+                        type: string   
